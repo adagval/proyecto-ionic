@@ -1,20 +1,20 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Películas con la palabra "Lord"
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-list>
+    <ion-item *ngFor="let pelicula of peliculas" [routerLink]="['/home',pelicula.id]">
+      <ion-card-content>
+        <h1><strong>{{pelicula.title}}</strong> </h1>
+        <h2><strong>Fecha de salida: {{pelicula.release_date}} </strong></h2>
+        <p>Descripción: {{pelicula.overview}}</p>
+        <p>Idioma: {{pelicula.original_language}} </p>
+      </ion-card-content>
+    </ion-item>
+  </ion-list>
 </ion-content>
